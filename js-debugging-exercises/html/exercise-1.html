@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS Console Exercise</title>
+  </head>
+  <body>
+    <h1>open the devtools console to see output</h1>
+    <script>
+        function getAverage(nums){
+        console.log("התחלנוווו");
+        console.table(nums);
+        
+    
+        let sum = 0;
+        for(num of nums){
+        sum+=sum
+        }
+        const average = sum/nums.length;
+        console.log(`the final average is:${average}`)
+        }
+     
+        let nums =[1,2,3,4,5,6,7,8,9,10]
+        const avg= getAverage(nums);
+        console.log(`The average of the nums: ${avg}`)
+
+
+    </script>
+  </body>
+</html>

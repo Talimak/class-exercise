@@ -1,37 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>JS Class Exercise</title>
-    <style>
-      #statusBox {
-        width: 50px;
-        height: 50px;
-        background-color: red;
+
+<head>
+  <meta charset="UTF-8" />
+  <title>JS Class Exercise</title>
+  <style>
+    #statusBox {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function toggleCellValue(cell) {
+      let arr = document.querySelectorAll(".toggleCell");
+      // console.log("arr:",arr);
+      if (arr[cell].innerHTML === "-1") {
+        arr[cell].innerHTML = "1";
+        arr[cell].style.backgroundColor = "greenyellow";
       }
-      table {
-        border-collapse: collapse;
+      else {
+        arr[cell].innerHTML = "-1";
+        arr[cell].style.backgroundColor = "";
       }
-      td {
-        width: 50px;
-        height: 50px;
-        text-align: center;
-        font-size: 20px;
-        cursor: pointer;
+      updateStatusBox();
+    }
+    function updateStatusBox() {
+        const arr = document.querySelectorAll(".toggleCell");
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+          sum += parseInt(arr[i].innerHTML);
+        }
+        console.log("sum:", sum);
+        let statusBox = document.querySelector("#statusBox");
+        if (sum === 3) {
+          statusBox.style.backgroundColor = "greenyellow";
+        }
+        else {
+          statusBox.style.backgroundColor = "red";
+        }
       }
-    </style>
-    <script>
-      // Function to toggle the cell value and update the status box
-    </script>
-  </head>
-  <body>
-    <table border="1">
-      <tr>
-        <td class="toggleCell">-1</td>
-        <td class="toggleCell">-1</td>
-        <td class="toggleCell">-1</td>
-        <td><div id="statusBox"></div></td>
-      </tr>
-    </table>
-  </body>
+  </script>
+</head>
+
+<body>
+  <table border="1">
+    <tr>
+      <td class="toggleCell" onclick="toggleCellValue(0)">-1</td>
+      <td class="toggleCell" onclick="toggleCellValue(1)">-1</td>
+      <td class="toggleCell" onclick="toggleCellValue(2)">-1</td>
+      <td>
+        <div id="statusBox"></div>
+      </td>
+    </tr>
+  </table>
+</body>
+
 </html>

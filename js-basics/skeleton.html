@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,24 +7,39 @@
     <!-- חלק א' - כפתורי רדיו לשינוי כיוון הכותרת -->
     <script>
       function changeLeft() {
+        document.getElementById("title").style.textAlign ="left"
         console.log("changeLeft");
       }
-
       function changeRight() {
-        console.log("changeRight");
-      }
+          document.getElementById("title").style.textAlign = "right"
+          console.log("changeRight");
+        }
     </script>
     <!-- חלק ב' - העברת טקסט מתיבה לכפתור -->
     <script>
       function changeTxt() {
+        let x = document.getElementById("txt").value;
+        console.log("");
+        document.getElementById("btn").value = x;
         console.log("changeTxt function called");
+        document.getElementById("txt").value = "";
       }
     </script>
   </head>
   <body>
     <div id="container">
-      <div id="first"><!-- חלק א' - כפתורי רדיו לשינוי כיוון הכותרת  --></div>
-      <div id="second"><!-- חלק ב' - העברת טקסט מתיבה לכפתור  --></div>
+      <div id="first">
+        <h1 id="title">ברוכים הבאים</h1>
+        <input type="radio" checked name="group1" onclick="changeLeft()"><label>שמאל</label>
+        <br />
+        <input type="radio" name="group1" onclick="changeRight()"><label>ימין</label>
+      </div>
+
+      <div id="second">
+        <input type="text" id="txt">
+        <br />
+        <input type="button" value="button" id="btn" onclick="changeTxt()">
+      </div>
     </div>
   </body>
 </html>
